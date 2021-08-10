@@ -4,6 +4,8 @@
 
 <ul>
 <% @notes.each do |note| %>
-  <li><%= note.title %></li>
+  <li>
+	  <%= link_to note.title, note_path(note) %>
+	</li>
 <% end %>
 </ul>
