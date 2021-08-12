@@ -1,0 +1,8 @@
+<li>
+  <%= link_to note.title, note_path(note) %>
+	<%= link_to "編輯", edit_note_path(note) %>
+	<%= link_to "刪除", note_path(note),
+	                    method: 'delete',
+											data: { confirm: '確定嗎？', id: note.id }
+										%>
+</li>

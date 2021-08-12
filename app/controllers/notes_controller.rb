@@ -1,23 +1,18 @@
 class NotesController < ApplicationController
+	before_action :find_note, only: [:show, :edit, :update, :destroy]
+
 	def index
-		# @notes = Note.all.sort.reverse  X
 		@notes = Note.order(id: :desc)
 	end
 
 	def show
-		@note = Note.find(params[:id])
 	end
 
 	def edit
-		@note = Note.find(params[:id])
 	end
 
 	def update
-		# Strong Parameter
-		clean_note = params.require(:note).permit(:title, :content)
-		@note = Note.find(params[:id])
-
-		if @note.update(clean_note)
+		if @note.update(note_params)
 			redirect_to "/notes"
 		else
 			## 待處理
@@ -30,9 +25,7 @@ class NotesController < ApplicationController
 	end
 
 	def create
-		# Strong Parameter
-		clean_note = params.require(:note).permit(:title, :content)
-		@note = Note.new(clean_note)
+		@note = Note.new(note_params)
 
 		if @note.save
 			redirect_to "/notes"
@@ -43,8 +36,17 @@ class NotesController < ApplicationController
 	end
 
 	def destroy
-		@note = Note.find(params[:id])
 		@note.destroy
 		redirect_to "/notes"
+	end
+
+	private
+	# Strong Parameter
+	def note_params
+		params.require(:note).permit(:title, :content)
+	end
+
+	def find_note
+		@note = Note.find(params[:id])
 	end
 end
