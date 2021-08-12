@@ -1,3 +1,11 @@
+<% if note.errors.any? %>
+  <ul>
+    <% note.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_for(note) do |f| %>
   <%= f.label :title, "標題" %>
   <%= f.text_field :title %>
