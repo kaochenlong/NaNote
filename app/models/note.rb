@@ -1,4 +1,6 @@
 class Note < ApplicationRecord
+	acts_as_paranoid
 	validates :title, presence: true
-	default_scope { where(deleted_at: nil) }
+
 end
+

@@ -4,5 +4,12 @@ Rails.application.routes.draw do
 
 	get "/hello", to: "pages#main"
 	get "/about", to: "pages#about"
-	get "/users", to: "users#profile"
+
+	resources :users, only: [:create] do
+		collection do
+			get :sign_up   # GET /users/sign_up 註冊表單
+		end
+
+	end
+	# get "/users", to: "users#profile"
 end
