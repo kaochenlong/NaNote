@@ -1,5 +1,6 @@
 class NotesController < ApplicationController
 	before_action :find_note, only: [:show, :edit, :update, :destroy]
+	before_action :check_login!, except: [:index, :show]
 
 	def index
 		@notes = Note.order(id: :desc)
