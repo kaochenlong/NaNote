@@ -5,7 +5,8 @@
 <ul>
 <% @notes.each do |note| %>
   <li>
-	  <%= link_to note.title, note_path(note) %>
+	  <%= note.user.email %>
+		<%= link_to note.title, note_path(note) %>
 		<%= link_to "編輯", edit_note_path(note) %>
 		<%= link_to "刪除", note_path(note),
 		                    method: 'delete',
