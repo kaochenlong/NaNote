@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @note.comments.new(comment_params)
 
     if @note.save
-      redirect_to @note
+      @content = comment_params[:content]
     else
       redirect_to "/"
     end
@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment)
           .permit(:content)
-          .merge(user: current_user)
+          .merge(user_id: current_user.id)
   end
 
   def find_user_note

@@ -1,12 +1,12 @@
 <h1>筆記: <%= @note.title %></h1>
 <%= @note.content %>
 
-<%= form_for(@comment, url: note_comments_path(@note)) do |f| %>
+<%= form_for(@comment, url: note_comments_path(@note), remote: true) do |f| %>
   <%= f.text_area :content %>
   <%= f.submit "新增留言" %>
 <% end %>
 
-<ul>
+<ul class="comments">
 <% @comments.each do |comment| %>
   <li><%= comment.content %></li>
 <% end %>
