@@ -1,4 +1,11 @@
-<h1>筆記: <%= @note.title %></h1>
+<div class="note-heading">
+  <h1>筆記: <%= @note.title %></h1>
+
+  <a href="#" id="favorite_btn">
+    <div class="favorite_icon"></div>
+  </a>
+</div>
+
 <%= @note.content %>
 
 <%= form_with(model: @comment, url: note_comments_path(@note), local: false) do |f| %>

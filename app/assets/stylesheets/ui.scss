@@ -1,0 +1,18 @@
+.note-heading {
+  display: flex;
+  align-items: center;
+
+  h1 {
+    margin-right: 10px;
+  }
+
+  a {
+    display: block;
+
+    .favorite_icon {
+      width: 40px;
+      height: 40px;
+      background-color: lightgray;
+    }
+  }
+}

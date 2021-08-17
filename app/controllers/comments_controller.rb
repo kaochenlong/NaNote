@@ -20,6 +20,6 @@ class CommentsController < ApplicationController
   end
 
   def find_user_note
-    @note = current_user.notes.find(params[:note_id])
+    @note = Note.find(params[:note_id])
   end
 end

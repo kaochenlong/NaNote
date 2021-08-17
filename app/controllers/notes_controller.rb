@@ -1,15 +1,13 @@
 class NotesController < ApplicationController
-	before_action :find_user_note, only: [:show, :edit, :update, :destroy]
+	before_action :find_user_note, only: [:edit, :update, :destroy]
 	before_action :check_login!, except: [:index, :show]
 
 	def index
-		@notes = current_user.notes
-		                     .includes(:user)
-												 .order(id: :desc)
+		@notes = Note.includes(:user).order(id: :desc)
 	end
 
 	def show
-		# @comment = Comment.new(note_id: @note.id)
+		@note = Note.find(params[:id])
 		@comment = @note.comments.new
 		@comments = @note.comments.order(id: :desc)
 	end
