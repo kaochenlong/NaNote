@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 	get "/", to: "notes#index"
-	resources :notes
+
+	resources :notes do
+		# shallow nesting
+		resources :comments, shallow: true, except: [:new, :edit, :update]
+	end
 
 	get "/hello", to: "pages#main"
 	get "/about", to: "pages#about"
