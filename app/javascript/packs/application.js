@@ -7,28 +7,18 @@ Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
 
-// fetch("https://jsonplaceholder.typicode.com/users")
-//   .then((resp) => resp.json()) // Promise
-//   .then((data) => {
-//     // [ {} ,  {}  , {}... x 10]
-//     for (let { username } of data) {
-//       console.log(username);
-//     }
-//     // data.forEach((d) => {
-//     //   console.log(d.username);
-//     // });
-//   });
-
 function addFavorite(id) {
+  console.log(id);
   // fetch().then().then()
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbolinks:load", () => {
   const btn = document.querySelector("#favorite_btn");
 
   if (btn) {
-    btn.addEventListener("click", () => {
-      addFavorite(2);
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      addFavorite(e.currentTarget.dataset.id);
     });
   }
 });
