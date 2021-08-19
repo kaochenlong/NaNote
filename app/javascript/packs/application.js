@@ -16,7 +16,15 @@ function addFavorite(id) {
 
   ax.post(url)
     .then((res) => {
-      console.log(res.data);
+      const icon = document.querySelector(".favorite_icon");
+
+      if (res.data.status === "added") {
+        icon.classList.remove("favorite-off");
+        icon.classList.add("favorite-on");
+      } else {
+        icon.classList.remove("favorite-on");
+        icon.classList.add("favorite-off");
+      }
     })
     .catch((err) => {
       console.log(err);

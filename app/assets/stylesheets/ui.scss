@@ -12,7 +12,15 @@
     .favorite_icon {
       width: 40px;
       height: 40px;
-      background-color: lightgray;
+      border: 1px solid gray;
     }
   }
+}
+
+.favorite-on {
+  background-color: blue;
+}
+
+.favorite-off {
+  background-color: lightgray;
 }
