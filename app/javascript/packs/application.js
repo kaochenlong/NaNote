@@ -7,9 +7,20 @@ Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
 
+import ax from "axios";
+
 function addFavorite(id) {
-  console.log(id);
-  // fetch().then().then()
+  const url = `/api/v1/notes/${id}/favorite`;
+  const token = document.querySelector("meta[name=csrf-token]").content;
+  ax.defaults.headers.common["X-CSRF-Token"] = token;
+
+  ax.post(url)
+    .then((res) => {
+      console.log(res.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 }
 
 document.addEventListener("turbolinks:load", () => {
