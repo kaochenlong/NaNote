@@ -6,6 +6,6 @@ module NotesHelper
       classes << (user.favorite?(note) ? 'favorite-on' : 'favorite-off')
     end
 
-    tag.div class: classes
+    tag.div class: classes, "data-favorite-target": "icon"
   end
 end
