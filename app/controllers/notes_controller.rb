@@ -48,7 +48,7 @@ class NotesController < ApplicationController
 	private
 	# Strong Parameter
 	def note_params
-		params.require(:note).permit(:title, :content)
+		params.require(:note).permit(:title, :content, :online_date)
 	end
 
 	def find_user_note

@@ -6,6 +6,7 @@
 <% @notes.each do |note| %>
   <li>
 	  <%= note.user.email %>
+		<%= note.online_date %>
 		<%= link_to note.title, note_path(note) %>
 		<%= link_to "編輯", edit_note_path(note) %>
 		<%= link_to "刪除", note_path(note),
