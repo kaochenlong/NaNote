@@ -1,13 +1,12 @@
 module NotesHelper
   def favorite_icon(user, note)
+    classes = ['favorite_icon']
+
     if user
-      if user.favorite?(note)
-        '<div class="favorite_icon favorite-on"></div>'.html_safe
-      else
-        '<div class="favorite_icon favorite-off"></div>'.html_safe
-      end
-    else
-      '<div class="favorite_icon"></div>'.html_safe
+      on_or_off = user.favorite?(note) ? 'favorite-on' : 'favorite-off'
+      classes << on_or_off
     end
+
+    tag.div class: classes
   end
 end
