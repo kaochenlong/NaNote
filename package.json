@@ -8,6 +8,7 @@
     "@rails/webpacker": "5.4.0",
     "axios": "^0.21.1",
     "flatpickr": "^4.6.9",
+    "medium-editor": "^5.23.3",
     "stimulus": "^2.0.0",
     "turbolinks": "^5.2.0",
     "webpack": "^4.46.0",

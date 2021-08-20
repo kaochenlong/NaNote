@@ -11,7 +11,7 @@
   </div>
 </div>
 
-<%= @note.content %>
+<%= simple_format(@note.content) %>
 
 <%= form_with(model: @comment, url: note_comments_path(@note), local: false) do |f| %>
   <%= f.text_area :content %>

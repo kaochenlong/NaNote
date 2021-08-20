@@ -7,15 +7,19 @@
 <% end %>
 
 <%= form_for(note) do |f| %>
-  <%= f.label :title, "標題" %>
-  <%= f.text_field :title %>
+  <div>
+    <%= f.label :title, "標題" %>
+    <%= f.text_field :title %>
 
-  <%= f.label :content, "內文" %>
-  <%= f.text_area :content %>
-
-  <%= f.label :online_date, "上線時間" %>
-  <%= f.text_field :online_date, data: { controller: 'datepicker' }
+    <%= f.label :online_date, "上線時間" %>
+    <%= f.text_field :online_date, data: { controller: 'datepicker' }
   %>
+  </div>
+
+  <div>
+    <%= f.label :content, "內文" %>
+    <%= f.text_area :content, data: { controller: 'editor' } %>
+  </div>
 
   <%= f.submit %>
 <% end %>
