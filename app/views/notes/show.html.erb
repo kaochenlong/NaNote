@@ -1,9 +1,14 @@
 <div class="note-heading">
   <h1>筆記: <%= @note.title %></h1>
 
-  <a href="#" id="favorite_btn" data-id="<%= @note.id %>">
-    <%= favorite_icon(current_user, @note) %>
-  </a>
+  <div data-controller="favorite">
+    <a href="#"
+       id="favorite_btn"
+       data-action="favorite#toggleFavorite"
+       data-id="<%= @note.id %>">
+      <%= favorite_icon(current_user, @note) %>
+    </a>
+  </div>
 </div>
 
 <%= @note.content %>

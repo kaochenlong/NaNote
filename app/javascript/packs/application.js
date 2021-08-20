@@ -7,4 +7,4 @@ Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
 
-import "scripts/favorite";
+import "controllers";
