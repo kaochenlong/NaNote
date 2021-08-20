@@ -1,5 +1,5 @@
 import { Controller } from "stimulus";
-import ax from "lib/http/ax";
+import Rails from "@rails/ujs";
 
 export default class extends Controller {
   static targets = ["icon"];
@@ -13,20 +13,24 @@ export default class extends Controller {
   addFavorite(id) {
     const url = `/api/v1/notes/${id}/favorite`;
 
-    ax.post(url)
-      .then((res) => {
+    Rails.ajax({
+      url: url,
+      type: "post",
+      data: "",
+      success: (data) => {
         const icon = this.iconTarget;
 
-        if (res.data.status === "added") {
+        if (data.status === "added") {
           icon.classList.remove("favorite-off");
           icon.classList.add("favorite-on");
         } else {
           icon.classList.remove("favorite-on");
           icon.classList.add("favorite-off");
         }
-      })
-      .catch((err) => {
+      },
+      error: function (err) {
         console.log(err);
-      });
+      },
+    });
   }
 }
