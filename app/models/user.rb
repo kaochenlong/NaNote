@@ -14,6 +14,10 @@ class User < ApplicationRecord
             through: :bookmarks,
             source: :note
 
+  def favorite?(n)
+    favorite_notes.exists?(n.id)
+  end
+
   private
   def encrypt_password
     salted_pw = "xyz#{self.password}827128#{self.password}82-12j23h"
