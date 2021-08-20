@@ -14,7 +14,8 @@
   <%= f.text_area :content %>
 
   <%= f.label :online_date, "上線時間" %>
-  <%= f.text_field :online_date %>
+  <%= f.text_field :online_date, data: { controller: 'datepicker' }
+  %>
 
   <%= f.submit %>
 <% end %>
