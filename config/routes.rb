@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 	resources :notes do
 		# shallow nesting
 		resources :comments, shallow: true, except: [:new, :edit, :update]
+
+		member do
+			patch :publish
+		end
 	end
 
 	get "/hello", to: "pages#main"

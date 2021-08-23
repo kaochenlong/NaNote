@@ -13,6 +13,9 @@
 		                    method: 'delete',
 												data: { confirm: '確定嗎？', id: note.id }
 											%>
+		<%= link_to "發佈", publish_note_path(note),
+		                    method: 'patch',
+												data: { confirm: '確認發佈嗎？'} if note.may_publish? %>
 	</li>
 <% end %>
 </ul>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_20_071857) do
+ActiveRecord::Schema.define(version: 2021_08_23_075732) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2021_08_20_071857) do
     t.datetime "deleted_at"
     t.integer "user_id"
     t.datetime "online_date"
+    t.string "state"
     t.index ["deleted_at"], name: "index_notes_on_deleted_at"
     t.index ["user_id"], name: "index_notes_on_user_id"
   end

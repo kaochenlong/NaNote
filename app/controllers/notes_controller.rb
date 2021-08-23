@@ -1,5 +1,5 @@
 class NotesController < ApplicationController
-	before_action :find_user_note, only: [:edit, :update, :destroy]
+	before_action :find_user_note, only: [:edit, :update, :destroy, :publish]
 	before_action :check_login!, except: [:index, :show]
 
 	def index
@@ -43,6 +43,13 @@ class NotesController < ApplicationController
 		# @note.destroy
 		@note.update(deleted_at: Time.now)
 		redirect_to "/notes"
+	end
+
+	def publish
+		@note.publish!
+		# flash[:notice] = "更新成功"
+		# redirect_to notes_path
+		redirect_to notes_path, notice: "更新成功"
 	end
 
 	private
